@@ -6,7 +6,7 @@ Include `i2c_esp32_static` as a component in your ESP32 system.
 
 # Usage
 You need to perform the following three steps:
-1. Statically allocate an array of `i2c_cmd_link` big enough to hold each of your I2C transactions.
+1. Allocate an array of `i2c_cmd_link` big enough to hold each of your I2C transactions. This array can be allocated statically, dynamically, or on the stack.
 2. Fill each of those command links with an I2C transaction. For each `i2c_master_**` function in the driver, there is a `static_i2c_master_**` equivalent. You will need one `i2c_cmd_link` for each `static_i2c_master_**` call.
 3. Run the transaction (using the regular `i2c_master_cmd_begin` function).
 
